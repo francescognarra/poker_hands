@@ -1,0 +1,10 @@
+.bundle
+nbproject/
+config/environments/production.rb
+config/*.conf
+config/database.yml
+db/sphinx/**/*
+log/*.log
+log/*.pid
+public/uploads/*
+tmp/**/*
