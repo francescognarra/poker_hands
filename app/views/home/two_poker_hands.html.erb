@@ -2,10 +2,12 @@
 <% @hand1.each do |c| %>
 <p><%= c.value + c.suit.name%></p>
 <% end %>
-<h2>You have <%= @result1 %></h2>
+<h2>You have <%= @result1.last %></h2>
 
 <h1>Player 2</h1>
 <% @hand2.each do |c| %>
 <p><%= c.value + c.suit.name%></p>
 <% end %>
-<h2>You have <%= @result2 %></h2>
+<h2>You have <%= @result2.last %></h2>
+
+<h1><%=@win%></h1>

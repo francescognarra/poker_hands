@@ -1,6 +1,6 @@
 <% @hand.each do |c| %>
 <p><%= c.value + c.suit.name%></p>
 <% end %>
-<h2>You have <%= @result %></h2>
+<h2>You have <%= @result.last %></h2>
 
 <%= link_to "New hand", single_poker_hand_path %>

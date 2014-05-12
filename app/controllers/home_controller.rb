@@ -20,6 +20,9 @@ class HomeController < ApplicationController
     @hand2 = @hands[5..9]
     @result1 = get_rank(@hand1)
     @result2 = get_rank(@hand2)
+    
+    @win = @result1.first < @result2.first ? "Player 2 win!!!"  : @result1.first > @result2.first ? "Player 1 win!!!" : "Nobody Win..."
+    
   end
 end
 
@@ -27,23 +30,26 @@ private
 
 def get_rank(hand)
   unless poker?(hand).nil?
-      c = poker?(hand)
-      result = "poker of " + c.first.value
-    else
+    c = poker?(hand)
+    s = "poker of " + c.first.value
+    result = [5, s]
+  else
       unless three_of_a_kind?(hand).nil?
         c = three_of_a_kind?(hand)
-        result = "three of " + c.first.value
-    
+        s = "three of " + c.first.value
+        result = [3, s]
       else
         unless pair?(hand).nil?
           c = pair?(hand)
-          result = "a pair of " + c.first.value 
+          s = "a pair of " + c.first.value 
+          result = [2, s]
         else
           c = high_card?(hand)
-          result = "High card " + c.value + " of " + c.suit.description
+          s = "High card " + c.value + " of " + c.suit.description
+          result = [1, s]
         end
-      end  
-    end
+      end 
+  end
     
   return result
 end
